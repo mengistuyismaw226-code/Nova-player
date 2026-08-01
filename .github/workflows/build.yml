@@ -24,6 +24,12 @@ jobs:
         with:
           channel: 'stable'
 
+      - name: Fix pubspec filename if needed
+        run: |
+          if [ -f "pubspec.yaml " ]; then
+            mv "pubspec.yaml " pubspec.yaml
+          fi
+
       - name: Install Dependencies
         run: flutter pub get
 
